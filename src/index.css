@@ -23,7 +23,6 @@ body {
   -webkit-line-clamp: 2;
 }
 
-/* 모달 애니메이션 */
 @keyframes modal-slide-up {
   from {
     opacity: 0;

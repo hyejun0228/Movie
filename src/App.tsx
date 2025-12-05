@@ -4,6 +4,9 @@ import MovieDetailPage from './components/MovieDetailPage';
 import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
 import BookingPage from './components/BookingPage';
+import EventPage from './components/EventPage';
+import MyPage from './components/Mypage';
+import TheatersPage from './components/TheaterPage';
 
 function App() {
   return (
@@ -14,6 +17,9 @@ function App() {
         <Route path="/booking/:id" element={<BookingPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/events" element={<EventPage />} />
+        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/theaters" element={<TheatersPage/>} />
       </Routes>
     </BrowserRouter>
   );

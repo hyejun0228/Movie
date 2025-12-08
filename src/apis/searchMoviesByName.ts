@@ -1,5 +1,5 @@
-import { BASE_URL } from "../constants";
-import type { Movie } from "../types/movie";
+import { BASE_URL } from "@/contants";
+import type { Movie } from "types/movie";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -7,7 +7,6 @@ export async function searchMoviesByName(
   query: string,
   page: number = 1
 ): Promise<Movie[]> {
-  // await new Promise((resolve) => setTimeout(resolve, 2000));
   const response = await fetch(
     `${BASE_URL}search/movie?api_key=${API_KEY}&language=ko-KR&query=${query}&page=${page}`
   );

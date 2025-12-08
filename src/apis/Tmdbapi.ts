@@ -31,7 +31,6 @@ export async function getNowPlayingMovies(page: number = 1): Promise<MoviesRespo
   return data;
 }
 
-// 개봉 예정 영화 가져오기
 export async function getUpcomingMovies(page: number = 1): Promise<MoviesResponse> {
   const response = await fetch(
     `${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=ko-KR&region=KR&page=${page}`
@@ -45,7 +44,6 @@ export async function getUpcomingMovies(page: number = 1): Promise<MoviesRespons
   return data;
 }
 
-// 높은 평점 영화 가져오기
 export async function getTopRatedMovies(page: number = 1): Promise<MoviesResponse> {
   const response = await fetch(
     `${BASE_URL}movie/top_rated?api_key=${API_KEY}&language=ko-KR&page=${page}`
@@ -59,7 +57,6 @@ export async function getTopRatedMovies(page: number = 1): Promise<MoviesRespons
   return data;
 }
 
-// 영화 상세 정보 가져오기
 export async function getMovieDetail(movieId: number): Promise<MovieDetail> {
   const response = await fetch(
     `${BASE_URL}movie/${movieId}?api_key=${API_KEY}&language=ko-KR`
@@ -73,7 +70,6 @@ export async function getMovieDetail(movieId: number): Promise<MovieDetail> {
   return data;
 }
 
-// 영화 검색
 export async function searchMovies(query: string, page: number = 1): Promise<MoviesResponse> {
   const response = await fetch(
     `${BASE_URL}search/movie?api_key=${API_KEY}&language=ko-KR&query=${encodeURIComponent(query)}&page=${page}`

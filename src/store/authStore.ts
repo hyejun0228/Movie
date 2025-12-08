@@ -31,20 +31,6 @@ const mockUsers = [
     name: '김혜준',
     avatar: 'https://picsum.photos/200/300​',
   },
-  {
-    id: '2',
-    email: 'admin@moviebox.com',
-    password: 'admin1234',
-    name: '관리자',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=admin',
-  },
-  {
-    id: '3',
-    email: 'user@test.com',
-    password: '123456',
-    name: '홍길동',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=user',
-  },
 ];
 
 export const useAuthStore = create<AuthState>()(

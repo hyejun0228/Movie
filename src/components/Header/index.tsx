@@ -12,10 +12,8 @@ const Header: React.FC<HeaderProps> = ({ simple = false }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
 
-  // Zustand에서 로그인 상태 가져오기
   const { user, isAuthenticated, logout } = useAuthStore();
 
-  // 프로필 드롭다운 외부 클릭 감지
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (profileRef.current && !profileRef.current.contains(event.target as Node)) {
@@ -57,14 +55,12 @@ const Header: React.FC<HeaderProps> = ({ simple = false }) => {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-bold text-purple-600">
               MovieBox
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
@@ -92,12 +88,9 @@ const Header: React.FC<HeaderProps> = ({ simple = false }) => {
             </Link>
           </nav>
 
-          {/* User Actions - Desktop */}
           <div className="hidden md:flex items-center space-x-4">
             {isAuthenticated ? (
-              // 로그인된 상태
               <div className="flex items-center space-x-4">
-                {/* 사용자 프로필 드롭다운 */}
                 <div className="relative" ref={profileRef}>
                   <button
                     onClick={() => setIsProfileOpen(!isProfileOpen)}
@@ -125,7 +118,6 @@ const Header: React.FC<HeaderProps> = ({ simple = false }) => {
                     </svg>
                   </button>
 
-                  {/* 드롭다운 메뉴 */}
                   {isProfileOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                       <Link
@@ -163,7 +155,6 @@ const Header: React.FC<HeaderProps> = ({ simple = false }) => {
                 </div>
               </div>
             ) : (
-              // 로그인 안된 상태
               <>
                 <Link
                   to="/login"
@@ -181,7 +172,6 @@ const Header: React.FC<HeaderProps> = ({ simple = false }) => {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-gray-700"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -211,7 +201,6 @@ const Header: React.FC<HeaderProps> = ({ simple = false }) => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
@@ -287,7 +276,6 @@ const Header: React.FC<HeaderProps> = ({ simple = false }) => {
                     </button>
                   </div>
                 ) : (
-                  // 모바일 - 로그인 안된 상태
                   <div className="flex flex-col space-y-2">
                     <Link
                       to="/login"

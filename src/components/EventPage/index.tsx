@@ -16,7 +16,6 @@ interface Event {
 const EventPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('전체');
 
-  // 임시 이벤트 데이터
   const events: Event[] = [
     {
       id: 1,
@@ -112,7 +111,6 @@ const EventPage: React.FC = () => {
       <Header />
 
       <main className="flex-grow">
-        {/* Hero Section */}
         <section className="bg-gradient-to-r from-purple-600 to-indigo-700 text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -124,7 +122,6 @@ const EventPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Filter Section */}
         <section className="bg-white border-b sticky top-16 z-40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex gap-2 overflow-x-auto">
@@ -145,7 +142,6 @@ const EventPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Events Grid */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-gray-900">
@@ -162,14 +158,14 @@ const EventPage: React.FC = () => {
                   key={event.id}
                   className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
                 >
-                  {/* 이미지 */}
+                  
                   <div className="relative aspect-[16/9] overflow-hidden">
                     <img
                       src={event.image}
                       alt={event.title}
                       className="w-full h-full object-cover"
                     />
-                    {/* 배지 */}
+                    
                     {event.badge && (
                       <div
                         className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white ${
@@ -181,11 +177,11 @@ const EventPage: React.FC = () => {
                         {event.badge}
                       </div>
                     )}
-                    {/* 카테고리 */}
+                    
                     <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold bg-black bg-opacity-60 text-white">
                       {event.category}
                     </div>
-                    {/* 종료 여부 */}
+                    
                     {!isEventActive(event.endDate) && (
                       <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
                         <span className="text-white text-2xl font-bold">
@@ -195,7 +191,7 @@ const EventPage: React.FC = () => {
                     )}
                   </div>
 
-                  {/* 내용 */}
+                  
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {event.title}
@@ -204,7 +200,7 @@ const EventPage: React.FC = () => {
                       {event.description}
                     </p>
 
-                    {/* 기간 */}
+                    
                     <div className="flex items-center text-sm text-gray-500 mb-4">
                       <svg
                         className="w-4 h-4 mr-2"
@@ -224,7 +220,7 @@ const EventPage: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* 상세보기 버튼 */}
+                    
                     <button
                       className={`w-full py-2 rounded-lg font-medium transition-colors ${
                         isEventActive(event.endDate)
@@ -263,7 +259,6 @@ const EventPage: React.FC = () => {
           )}
         </section>
 
-        {/* Call to Action */}
         <section className="bg-gradient-to-r from-purple-600 to-indigo-700 text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold mb-4">

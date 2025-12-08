@@ -34,7 +34,7 @@ const BookingPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { isAuthenticated } = useAuthStore();
-  const { addBooking } = useBookingStore(); // Zustand 스토어
+  const { addBooking } = useBookingStore();
 
   const [movie, setMovie] = useState<MovieDetail | null>(null);
   const [loading, setLoading] = useState(true);
@@ -192,8 +192,6 @@ const BookingPage: React.FC = () => {
 
     const selectedTheaterData = theaters.find(t => t.id === selectedTheater);
     const selectedShowTimeData = showTimes.find(s => s.id === selectedShowTime);
-
-    // Zustand 스토어에 예매 정보 저장
     addBooking({
       movieId: movie.id,
       movieTitle: movie.title,
@@ -244,7 +242,6 @@ const BookingPage: React.FC = () => {
 
       <main className="flex-grow py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* 영화 정보 헤더 */}
           <div className="bg-white rounded-xl shadow-md p-6 mb-6">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
               <img
@@ -271,7 +268,6 @@ const BookingPage: React.FC = () => {
             </div>
           </div>
 
-          {/* 진행 단계 */}
           <div className="bg-white rounded-xl shadow-md p-6 mb-6">
             <div className="flex items-center justify-between max-w-2xl mx-auto">
               {[
@@ -312,7 +308,6 @@ const BookingPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Step 1: 극장 및 시간 선택 */}
           {currentStep === 1 && (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* 날짜 선택 */}
@@ -357,7 +352,6 @@ const BookingPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* 극장 선택 */}
               <div className="bg-white rounded-xl shadow-md p-6">
                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span className="text-2xl mr-2">🏢</span>
@@ -392,7 +386,6 @@ const BookingPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* 시간 선택 */}
               <div className="bg-white rounded-xl shadow-md p-6">
                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span className="text-2xl mr-2">🕐</span>
@@ -434,10 +427,9 @@ const BookingPage: React.FC = () => {
             </div>
           )}
 
-          {/* Step 2: 좌석 선택 */}
           {currentStep === 2 && (
             <div className="bg-white rounded-xl shadow-md p-6 lg:p-8">
-              {/* 인원 선택 */}
+              
               <div className="mb-8">
                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span className="text-2xl mr-2">👥</span>
@@ -460,7 +452,6 @@ const BookingPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* 좌석 선택 */}
               <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span className="text-2xl mr-2">💺</span>
@@ -470,7 +461,6 @@ const BookingPage: React.FC = () => {
                   </span>
                 </h2>
                 
-                {/* 스크린 */}
                 <div className="mb-8">
                   <div className="relative">
                     <div className="bg-gradient-to-b from-gray-300 to-gray-200 py-3 rounded-t-[50%] text-center">
@@ -480,7 +470,6 @@ const BookingPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* 좌석 범례 */}
                 <div className="flex flex-wrap justify-center gap-6 mb-8 p-4 bg-gray-50 rounded-lg">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-gray-100 border-2 border-gray-300 rounded"></div>
@@ -496,7 +485,6 @@ const BookingPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* 좌석 그리드 */}
                 <div className="overflow-x-auto">
                   <div className="inline-block min-w-full px-4">
                     <div className="flex justify-center">
@@ -530,8 +518,6 @@ const BookingPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* 선택된 좌석 */}
                 {selectedSeats.length > 0 && (
                   <div className="mt-8 p-6 bg-purple-50 rounded-xl border-2 border-purple-200">
                     <div className="flex items-center justify-between">
@@ -554,7 +540,6 @@ const BookingPage: React.FC = () => {
             </div>
           )}
 
-          {/* Step 3: 결제 */}
           {currentStep === 3 && (
             <div className="bg-white rounded-xl shadow-md p-6 lg:p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
@@ -563,7 +548,6 @@ const BookingPage: React.FC = () => {
               </h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* 예매 정보 */}
                 <div className="space-y-4">
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <p className="text-sm text-gray-600 mb-1">영화</p>
@@ -595,7 +579,6 @@ const BookingPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* 결제 금액 */}
                 <div className="space-y-4">
                   <div className="p-6 bg-purple-50 rounded-xl border-2 border-purple-200">
                     <h3 className="text-lg font-bold text-gray-900 mb-4">결제 금액</h3>
@@ -632,7 +615,6 @@ const BookingPage: React.FC = () => {
             </div>
           )}
 
-          {/* 하단 버튼 */}
           <div className="flex gap-4 mt-6">
             {currentStep > 1 && (
               <button

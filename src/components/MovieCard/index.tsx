@@ -24,7 +24,6 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
       className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
       onClick={onClick}
     >
-      {/* Poster */}
       <div className="relative aspect-[2/3] overflow-hidden bg-gray-200">
         <img
           src={posterUrl}
@@ -32,19 +31,16 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
           className="w-full h-full object-cover"
           loading="lazy"
         />
-        {/* 평점 배지 */}
         <div className="absolute top-2 right-2 bg-purple-600 text-white px-2 py-1 rounded-md text-sm font-semibold flex items-center gap-1">
           ⭐ {rating}
         </div>
       </div>
 
-      {/* Info */}
       <div className="p-4">
         <h3 className="font-bold text-lg mb-2 text-gray-900 line-clamp-2 min-h-[3.5rem]">
           {movie.title}
         </h3>
         
-        {/* 통계 정보 */}
         <div className="space-y-1 mb-3">
           <div className="flex items-center justify-between text-sm">
             <span className="text-gray-600">개봉</span>
@@ -60,7 +56,6 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
           </div>
         </div>
 
-        {/* Action Buttons */}
         <div className="flex gap-2 mt-3">
           <button 
             className="flex-1 bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm"

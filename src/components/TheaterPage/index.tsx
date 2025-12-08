@@ -25,9 +25,7 @@ const TheatersPage: React.FC = () => {
   const [selectedBrand, setSelectedBrand] = useState<string>('전체');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  // 극장 데이터
   const theaters: Theater[] = [
-    // 서울 - CGV
     {
       id: 1,
       name: 'CGV 강남',
@@ -73,7 +71,6 @@ const TheatersPage: React.FC = () => {
       latitude: 37.5290,
       longitude: 126.9654,
     },
-    // 서울 - 롯데시네마
     {
       id: 4,
       name: '롯데시네마 월드타워',
@@ -104,7 +101,6 @@ const TheatersPage: React.FC = () => {
       latitude: 37.5636,
       longitude: 126.9850,
     },
-    // 서울 - 메가박스
     {
       id: 6,
       name: '메가박스 코엑스',
@@ -214,13 +210,10 @@ const TheatersPage: React.FC = () => {
     },
   ];
 
-  // 지역 목록
   const regions = ['서울', '경기', '인천', '부산', '대구', '대전', '광주'];
 
-  // 브랜드 목록
   const brands = ['전체', 'CGV', '롯데시네마', '메가박스'];
 
-  // 필터링된 극장
   const filteredTheaters = theaters.filter(theater => {
     const matchRegion = theater.region === selectedRegion;
     const matchBrand = selectedBrand === '전체' || theater.brand === selectedBrand;
@@ -232,7 +225,6 @@ const TheatersPage: React.FC = () => {
     return matchRegion && matchBrand && matchSearch;
   });
 
-  // 지역별 구 목록
   const districts = Array.from(new Set(filteredTheaters.map(t => t.district))).sort();
 
   const getBrandColor = (brand: string) => {
@@ -253,7 +245,6 @@ const TheatersPage: React.FC = () => {
       <Header />
 
       <main className="flex-grow">
-        {/* Hero Section */}
         <section className="bg-gradient-to-r from-purple-600 to-indigo-700 text-white py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -265,10 +256,8 @@ const TheatersPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Search & Filter */}
         <section className="bg-white shadow-md border-b border-gray-200 sticky top-16 z-40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            {/* 검색바 */}
             <div className="mb-4">
               <div className="relative">
                 <input
@@ -289,9 +278,7 @@ const TheatersPage: React.FC = () => {
               </div>
             </div>
 
-            {/* 필터 */}
             <div className="flex flex-col md:flex-row gap-4">
-              {/* 지역 선택 */}
               <div className="flex-1">
                 <div className="flex gap-2 overflow-x-auto pb-2">
                   {regions.map(region => (
@@ -310,7 +297,6 @@ const TheatersPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* 브랜드 선택 */}
               <div className="flex gap-2">
                 {brands.map(brand => (
                   <button
@@ -330,9 +316,7 @@ const TheatersPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Theater List */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* 결과 헤더 */}
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
               {selectedRegion} 극장
@@ -342,7 +326,6 @@ const TheatersPage: React.FC = () => {
             </p>
           </div>
 
-          {/* 구별 그룹 */}
           {districts.length > 0 ? (
             <div className="space-y-8">
               {districts.map(district => {
@@ -373,9 +356,7 @@ const TheatersPage: React.FC = () => {
                             </div>
                           </div>
 
-                          {/* 본문 */}
                           <div className="p-6">
-                            {/* 주소 */}
                             <div className="mb-4">
                               <p className="flex items-start text-sm text-gray-600">
                                 <svg className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -392,7 +373,6 @@ const TheatersPage: React.FC = () => {
                               </p>
                             </div>
 
-                            {/* 정보 */}
                             <div className="grid grid-cols-3 gap-2 mb-4">
                               <div className="bg-gray-50 rounded-lg p-2 text-center">
                                 <p className="text-xs text-gray-600 mb-1">상영관</p>
@@ -410,7 +390,6 @@ const TheatersPage: React.FC = () => {
                               </div>
                             </div>
 
-                            {/* 특별관 */}
                             <div className="mb-4">
                               <p className="text-xs text-gray-600 mb-2">특별관</p>
                               <div className="flex flex-wrap gap-2">
@@ -425,7 +404,6 @@ const TheatersPage: React.FC = () => {
                               </div>
                             </div>
 
-                            {/* 버튼 */}
                             <div className="flex gap-2">
                               <button className="flex-1 bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm">
                                 예매하기
@@ -445,7 +423,6 @@ const TheatersPage: React.FC = () => {
               })}
             </div>
           ) : (
-            /* 검색 결과 없음 */
             <div className="bg-white rounded-xl shadow-md p-12 text-center">
               <div className="text-6xl mb-4">🔍</div>
               <p className="text-gray-600 text-lg mb-2">검색 결과가 없습니다.</p>
@@ -454,14 +431,12 @@ const TheatersPage: React.FC = () => {
           )}
         </section>
 
-        {/* Info Section */}
         <section className="bg-gradient-to-r from-purple-50 to-indigo-50 py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
               💡 특별관 안내
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* IMAX */}
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4 text-center">🎬</div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">IMAX</h3>
@@ -470,7 +445,6 @@ const TheatersPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* 4DX */}
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4 text-center">🎢</div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">4DX</h3>
@@ -479,7 +453,6 @@ const TheatersPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* SCREENX */}
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4 text-center">📺</div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">SCREENX</h3>

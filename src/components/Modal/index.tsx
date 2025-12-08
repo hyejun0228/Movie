@@ -19,7 +19,6 @@ const Modal: React.FC<ModalProps> = ({
   confirmText = '확인',
   showIcon = true,
 }) => {
-  // ESC 키로 모달 닫기
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
@@ -31,7 +30,6 @@ const Modal: React.FC<ModalProps> = ({
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose]);
 
-  // 모달이 열릴 때 body 스크롤 방지
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -88,15 +86,12 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* 백드롭 */}
       <div
         className="absolute inset-0 bg-black bg-opacity-50 transition-opacity"
         onClick={onClose}
       />
 
-      {/* 모달 콘텐츠 */}
       <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full p-6 transform transition-all animate-modal-slide-up">
-        {/* 아이콘 */}
         {showIcon && (
           <div className="flex justify-center mb-4">
             <div className={`${config.bg} rounded-full p-3`}>
@@ -105,17 +100,14 @@ const Modal: React.FC<ModalProps> = ({
           </div>
         )}
 
-        {/* 제목 */}
         <h3 className="text-xl font-bold text-gray-900 text-center mb-2">
           {title}
         </h3>
 
-        {/* 메시지 */}
         <p className="text-gray-600 text-center mb-6">
           {message}
         </p>
 
-        {/* 확인 버튼 */}
         <button
           onClick={onClose}
           className={`w-full py-3 px-4 rounded-lg font-medium text-white transition-colors ${config.buttonBg}`}

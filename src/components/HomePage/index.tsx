@@ -73,7 +73,6 @@ const HomePage: React.FC = () => {
       <Header />
       
       <main className="flex-grow">
-        {/* Main Banner with Movie Posters */}
         {!loading && bannerMovies.length > 0 && (
           <section className="relative h-[500px] md:h-[600px] overflow-hidden bg-black">
             {bannerMovies.map((movie, index) => (
@@ -83,7 +82,6 @@ const HomePage: React.FC = () => {
                   index === currentBannerIndex ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                {/* Background Image */}
                 <div
                   className="absolute inset-0 bg-cover bg-center"
                   style={{
@@ -93,7 +91,6 @@ const HomePage: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
                 </div>
 
-                {/* Content */}
                 <div className="relative h-full flex items-center">
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                     <div className="max-w-2xl text-white">
@@ -154,7 +151,6 @@ const HomePage: React.FC = () => {
         )}
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Section Header */}
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
@@ -202,7 +198,6 @@ const HomePage: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile Filter */}
           <div className="md:hidden mb-6">
             <select
               value={sortType}
@@ -215,7 +210,7 @@ const HomePage: React.FC = () => {
             </select>
           </div>
 
-          {/* Loading State */}
+          
           {loading && (
             <div className="flex flex-col justify-center items-center py-20">
               <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-purple-600 mb-4" />
@@ -223,7 +218,7 @@ const HomePage: React.FC = () => {
             </div>
           )}
 
-          {/* Error State */}
+          
           {error && (
             <div className="bg-red-50 border-l-4 border-red-500 text-red-700 px-6 py-4 rounded-lg mb-4">
               <div className="flex items-center">
@@ -235,7 +230,7 @@ const HomePage: React.FC = () => {
             </div>
           )}
 
-          {/* Movies Grid */}
+          
           {!loading && !error && movies.length > 0 && (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
               {movies.map((movie) => (
@@ -248,7 +243,6 @@ const HomePage: React.FC = () => {
             </div>
           )}
 
-          {/* Empty State */}
           {!loading && !error && movies.length === 0 && (
             <div className="text-center py-20">
               <div className="text-6xl mb-4">🎬</div>
@@ -258,7 +252,7 @@ const HomePage: React.FC = () => {
           )}
         </section>
 
-        {/* Event & Benefits Section */}
+        
         <section className="bg-gradient-to-r from-purple-50 to-indigo-50 py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
@@ -286,7 +280,6 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Event Card 2 */}
               <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer group">
                 <div className="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center group-hover:scale-105 transition-transform">
                   <span className="text-6xl">🍿</span>
@@ -307,7 +300,6 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Event Card 3 */}
               <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer group">
                 <div className="h-48 bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center group-hover:scale-105 transition-transform">
                   <span className="text-6xl">💳</span>
@@ -331,7 +323,6 @@ const HomePage: React.FC = () => {
           </div>
         </section>
 
-        {/* App Download Section */}
         <section className="bg-gray-900 text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
